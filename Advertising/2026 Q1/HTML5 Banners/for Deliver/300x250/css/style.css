@@ -1,0 +1,127 @@
+/* 300x250 HTML5 Banner Scaffold
+   - All assets visible (no animation yet)
+   - Source assets are 2x; displayed at 0.5 scale
+*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+}
+
+#ad {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Common 2x -> 1x scale */
+.asset {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+/* Layering (adjust later as needed) */
+#blueFadeBg { z-index: 1; }
+#gymBg { 
+  z-index: 5; 
+  position:absolute;
+  left:0; 
+  top:0;
+  width:300px; height:250px;
+  background: url("../assets/images/Gym.jpg") center/cover no-repeat;
+}
+#livingBg { 
+  z-index: 3; 
+  visibility: hidden;
+}
+#tagline { 
+  z-index: 2; 
+  left: 154px;
+  top: 86px;
+}
+#encouragement { 
+  z-index: 10; 
+  opacity: 0;
+  transform: scale(0.5) translate3d(0, 60px, 0);
+  top: 228px;
+  left: 55px;
+}
+#tagBar { 
+  z-index: 9; 
+  top: 220px;
+  opacity: 0;
+  transform: scale(0.5) translate3d(0, 60px, 0);
+}
+#cta { 
+  z-index: 8; 
+  opacity: 0;
+  transform: scale(0.5) rotate(-10deg); /* cute twist start */
+  transform-origin: 50% 50%;
+  left: 5px;
+  top: 155px;
+}
+#logo { 
+  z-index: 4; 
+  left: 147px;
+  top: 19px;
+}
+#woman { 
+  z-index: 7;
+  left: 29.5px;
+  top: 14px;
+}
+
+/* Container that holds the shattered pieces */
+#gymShatter{
+  position:absolute;
+  left:0; 
+  top:0;
+  width:300px; 
+  height:250px;
+  z-index: 2;           /* same as gym */
+  pointer-events:none;
+}
+
+/* Each tiny shard/tile */
+.gymPiece{
+  position:absolute;
+  background-image: url("../assets/images/Gym.jpg");
+  background-repeat:no-repeat;
+  will-change: transform, opacity, filter;
+  transform: translate3d(0,0,0) rotate(0deg);
+  opacity: 1;
+}
+
+/* Living room assembly container */
+#livingAssemble{
+  position:absolute;
+  left:0;
+  top:0;
+  width:300px;
+  height:250px;
+  z-index: 3;           /* set to your living room layer's z-index */
+  pointer-events:none;
+}
+
+/* Living room pieces */
+.livingPiece{
+  position:absolute;
+  background-repeat:no-repeat;
+  background-size:300px 250px;  /* IMPORTANT: 1x banner space */
+  will-change: transform, opacity, filter;
+  opacity: 0;                   /* start hidden */
+  transform: translate3d(0,0,0);
+}
+
+
